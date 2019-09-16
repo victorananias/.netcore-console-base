@@ -1,6 +1,8 @@
+using System;
 using System.IO;
 using System.Text;
 using NPOI.HSSF.UserModel;
+using NPOI.OpenXml4Net.OPC;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 
@@ -13,15 +15,23 @@ namespace Classes
         {
 
         }
-        public string Import (string filePath)
+
+        public ISheet Read (string filePath, int sheetIndex = 0)
         {
 
-            HSSFWorkbook workbook;
-            
+            XSSFWorkbook wb;
             using (FileStream file = new FileStream(filePath, FileMode.Open, FileAccess.Read))
             {
-                workbook = new HSSFWorkbook(file);
+                OPCPackage pkg = OPCPackage.Open(file);
+                wb = new XSSFWorkbook(pkg);
+                
             }
+            
+            string firstSheet = wb.GetSheetName(sheetIndex);
+
+            ISheet sheet = wb.GetSheet(firstSheet);
+
+            return sheet;
 
         
             // if (file.Length > 0) {

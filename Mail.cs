@@ -2,8 +2,10 @@ using System;
 using System.Net;
 using System.Net.Mail;
 
-namespace Classes {
-    class Mail {
+namespace Classes
+{
+    class Mail
+    {
         private string _host;
         private int _port;
         private string _username;
