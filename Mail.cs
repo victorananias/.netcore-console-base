@@ -2,7 +2,7 @@ using System;
 using System.Net;
 using System.Net.Mail;
 
-namespace DCGAvisoMultiCD.Src
+namespace Classes
 {
     public class Mail
     {
