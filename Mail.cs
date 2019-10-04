@@ -8,18 +8,24 @@ namespace Classes
     {
         private string _host;
         private int _port;
-        private string _username;
-        private string _password;
         private string _cc;
         private string _bcc;
         private string _to;
+        private MailAddress _from;
+        private NetworkCredential _credentials;
 
         public Mail (string host, int port, string username, string password)
         {
             _host = host;
             _port = port;
-            _username = username;
-            _password = password;
+            _from = new MailAddress(username);
+            _credentials = new NetworkCredential (username, password);
+        }
+
+        public Mail From(string from, string fromName = null)
+        {
+            _from = new MailAddress(from, fromName);
+            return this;
         }
 
         public Mail CC(string cc)
@@ -27,7 +33,6 @@ namespace Classes
             _cc = cc;
             return this;
         }
-
 
         public Mail BCC(string bcc)
         {
@@ -41,47 +46,41 @@ namespace Classes
             return this;
         }
 
-        public bool Send (string subject, string body, bool isBodyHtml = true)
+        public void Send (string subject, string body, bool isBodyHtml = true)
         {
             try
             {
                 using (SmtpClient client = new SmtpClient (_host, _port)) {
                     client.EnableSsl = true;
-                    client.Credentials = new NetworkCredential (_username, _password);
+                    client.Credentials = _credentials;
 
                     MailMessage message = new MailMessage ();
                     
-                    message.From = new MailAddress(_username);
+                    message.From = _from;
                     message.Subject = subject;
                     message.Body = body;
-
-                    foreach (var address in _to.Split(new [] {";"}, StringSplitOptions.RemoveEmptyEntries))
-                    {
-                        message.To.Add(address);    
-                    }
-
-                    foreach (var address in _cc.Split(new [] {";"}, StringSplitOptions.RemoveEmptyEntries))
-                    {
-                        message.CC.Add(address);    
-                    }
-
-                    foreach (var address in _bcc.Split(new [] {";"}, StringSplitOptions.RemoveEmptyEntries))
-                    {
-                        message.Bcc.Add(address);    
-                    }
+                    
+                    AddAdress(message.To, _to);
+                    AddAdress(message.CC, _cc);
+                    AddAdress(message.Bcc, _bcc);
 
                     message.IsBodyHtml = isBodyHtml;
 
                     client.Send (message);
-
-                    return true;
                 }
 
             }
-            catch (Exception erro)
+            catch (Exception e)
             {
-                Console.WriteLine (erro);
-                return false;
+                throw e;
+            }
+        }
+
+        private void AddAdress(MailAddressCollection mail, string adresses)
+        {
+            foreach (var address in adresses.Split(new [] {";"}, StringSplitOptions.RemoveEmptyEntries))
+            {
+                mail.Add(address);
             }
         }
     }
