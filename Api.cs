@@ -27,7 +27,8 @@ namespace Classes
         {
             try
             {
-                var url = "http://localhost/";
+                var url = _configuration["url"];
+                
                 var form = new FormUrlEncodedContent(new []
                     {
                         new KeyValuePair<string, string>("id", "test"),
