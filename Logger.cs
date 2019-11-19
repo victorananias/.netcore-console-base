@@ -28,7 +28,7 @@ namespace Classes
         {
             using (StreamWriter fileStream = new StreamWriter(_logFile, true))
             {
-                fileStream.WriteLine("---"+ DateTime.Now.ToString("HH:mm:ss") + "---");
+                fileStream.WriteLine("\n---"+ DateTime.Now.ToString("HH:mm:ss") + "---");
                 fileStream.WriteLine(log);
                 fileStream.Close();
             }
