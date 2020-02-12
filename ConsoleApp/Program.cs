@@ -14,7 +14,7 @@ namespace ConsoleApp
         {
             var services = ConfigureServices();
             var serviceProvider = services.BuildServiceProvider();
-            await serviceProvider.GetService<Startup>().Run();
+            await serviceProvider.GetService<Main>().Run();
         }
 
         public static IServiceCollection ConfigureServices()
@@ -27,7 +27,7 @@ namespace ConsoleApp
 
             services.InstallServicesAssembly(configuration);
 
-            services.AddTransient<Startup>();
+            services.AddTransient<Main>();
 
             services.AddOptions();
 

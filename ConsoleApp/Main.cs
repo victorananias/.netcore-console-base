@@ -7,10 +7,10 @@ using Microsoft.Extensions.Options;
 
 namespace ConsoleApp
 {
-    public class Startup
+    public class Main
     {
         private IExampleService _service;
-        public Startup(
+        public Main(
             IExampleService service,
             IOptions<AppSettings> settings
         )
