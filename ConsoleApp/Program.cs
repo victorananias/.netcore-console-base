@@ -6,6 +6,7 @@ using ConsoleApp.Settings;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace ConsoleApp
 {
@@ -18,6 +19,10 @@ namespace ConsoleApp
 
         private static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureLogging((hostingContext, builder) =>
+                {
+                    builder.AddFile(hostingContext.Configuration["LoggingSettings:Path"] + "/{Date}.txt");
+                })
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.InstallServicesAssembly(hostContext.Configuration);
