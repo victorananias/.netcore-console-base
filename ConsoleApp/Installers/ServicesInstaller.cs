@@ -12,7 +12,7 @@ namespace ConsoleApp.Installers
     {
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddScoped<IExampleService, ExampleService>();
+            services.AddScoped<IMainService, MainService>();
         }
     }
 }

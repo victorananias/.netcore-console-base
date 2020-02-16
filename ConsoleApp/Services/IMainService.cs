@@ -2,8 +2,8 @@
 
 namespace ConsoleApp.Services
 {
-    public interface IExampleService
+    public interface IMainService
     {
-        Task Example(string content);
+        Task Run();
     }
 }

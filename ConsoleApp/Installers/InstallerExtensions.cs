@@ -11,7 +11,7 @@ namespace ConsoleApp.Installers
     {
         public static void InstallServicesAssembly(this IServiceCollection services, IConfiguration configuration)
         {
-            var installers = typeof(Main).Assembly.GetTypes()
+            var installers = typeof(DefaultHostedService).Assembly.GetTypes()
                 .Where(x => typeof(IInstaller).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
                 .Select(Activator.CreateInstance).Cast<IInstaller>().ToList();
             
