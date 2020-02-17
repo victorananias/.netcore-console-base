@@ -1,16 +1,5 @@
-# .Net Core Console App DI Boilerplate
+# .Net Core Console App Hosting Boilerplate
 
-
-
-## Packages
-
-### Configuration File
-* Microsoft.Extensions.Configuration
-* Microsoft.Extensions.Configuration.FileExtensions
-* Microsoft.Extensions.Configuration.Json
-
-### Dependency Injection
-* Microsoft.Extensions.DependencyInjection;
 
 ## Publish
 ``
