@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 
 namespace Classes
 {
@@ -23,7 +22,7 @@ namespace Classes
             _http = http;
         }
 
-        public async Task<Response> GetAccessToken()
+        public async Task<Response> Get()
         {
             try
             {
@@ -36,9 +35,7 @@ namespace Classes
                 );
 
                 var responseMessage = await _http.PostAsync(url, form);
-                var json = await responseMessage.Content.ReadAsStringAsync();
-
-                return JsonConvert.DeserializeObject<Response>(json);
+                return await responseMessage.Content.ReadAsAsync<Response>();
             }
             catch(Exception e)
             {

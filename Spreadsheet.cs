@@ -7,27 +7,13 @@ namespace Classes
 {
     class Spreadsheet
     {   
-
-        public Spreadsheet()
-        {
-
-        }
-
         public ISheet Read (string filePath, int sheetIndex = 0)
         {
-
-            XSSFWorkbook wb;
-            using (FileStream file = new FileStream(filePath, FileMode.Open, FileAccess.Read))
-            {
-                OPCPackage pkg = OPCPackage.Open(file);
-                wb = new XSSFWorkbook(pkg);
-                
-            }
-            
-            string firstSheet = wb.GetSheetName(sheetIndex);
-
-            ISheet sheet = wb.GetSheet(firstSheet);
-
+            using var file = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            var pkg = OPCPackage.Open(file);
+            var wb = new XSSFWorkbook(pkg);
+            var firstSheet = wb.GetSheetName(sheetIndex);
+            var sheet = wb.GetSheet(firstSheet);
             return sheet;
         }
     }

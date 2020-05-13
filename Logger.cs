@@ -11,11 +11,13 @@ namespace Classes
 
         public Logger(IConfiguration _config)
         {
-            _logsDirectory = string.IsNullOrEmpty(_config.GetSection("Logger")["Path"]) ? "./logs": _config.GetSection("Logger")["Path"];
+            _logsDirectory = string.IsNullOrEmpty(_config.GetSection("Logger")["Path"])
+                ? "./logs"
+                : _config.GetSection("Logger")["Path"];
             _logFile = _logsDirectory + "/" + DateTime.Now.ToString("yyyyMMdd");
         }
 
-        public void Create (string log)
+        public void Create(string log)
         {
             CheckLogsDirectory();
 
@@ -26,17 +28,16 @@ namespace Classes
 
         private void Insert(string log)
         {
-            using (StreamWriter fileStream = new StreamWriter(_logFile, true))
-            {
-                fileStream.WriteLine("\n---"+ DateTime.Now.ToString("HH:mm:ss") + "---");
-                fileStream.WriteLine(log);
-                fileStream.Close();
-            }
+            using var fileStream = new StreamWriter(_logFile, true);
+            fileStream.WriteLine("\n---" + DateTime.Now.ToString("HH:mm:ss") + "---");
+            fileStream.WriteLine(log);
+            fileStream.Close();
         }
 
-        public void CheckLogsDirectory()
+        private void CheckLogsDirectory()
         {
-            if (!Directory.Exists (_logsDirectory)) {
+            if (!Directory.Exists(_logsDirectory))
+            {
                 Directory.CreateDirectory(_logsDirectory);
             }
         }

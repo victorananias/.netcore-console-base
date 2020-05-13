@@ -50,25 +50,23 @@ namespace Classes
         {
             try
             {
-                using (SmtpClient client = new SmtpClient (_host, _port)) {
-                    client.EnableSsl = true;
-                    client.Credentials = _credentials;
+                using var client = new SmtpClient (_host, _port);
+                client.EnableSsl = true;
+                client.Credentials = _credentials;
 
-                    MailMessage message = new MailMessage ();
+                var message = new MailMessage ();
                     
-                    message.From = _from;
-                    message.Subject = subject;
-                    message.Body = body;
+                message.From = _from;
+                message.Subject = subject;
+                message.Body = body;
                     
-                    AddAdress(message.To, _to);
-                    AddAdress(message.CC, _cc);
-                    AddAdress(message.Bcc, _bcc);
+                AddAdress(message.To, _to);
+                AddAdress(message.CC, _cc);
+                AddAdress(message.Bcc, _bcc);
 
-                    message.IsBodyHtml = isBodyHtml;
+                message.IsBodyHtml = isBodyHtml;
 
-                    client.Send (message);
-                }
-
+                client.Send (message);
             }
             catch (Exception e)
             {
@@ -76,7 +74,7 @@ namespace Classes
             }
         }
 
-        private void AddAdress(MailAddressCollection mail, string adresses)
+        private static void AddAdress(MailAddressCollection mail, string adresses)
         {
             foreach (var address in adresses.Split(new [] {";"}, StringSplitOptions.RemoveEmptyEntries))
             {
