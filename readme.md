@@ -4,4 +4,4 @@
 App Hosting Boilerplate
 
 ## Examples.Classes 
-Some examples of C# classes I had use
+Some examples of C# classes I have used
