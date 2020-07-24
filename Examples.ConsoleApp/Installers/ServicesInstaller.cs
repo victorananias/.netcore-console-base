@@ -1,12 +1,12 @@
-﻿using ConsoleApp.Services;
-using ConsoleApp.Settings;
+﻿using Examples.ConsoleApp.Services;
+using Examples.ConsoleApp.Settings;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp.Installers
+namespace Examples.ConsoleApp.Installers
 {
     class ServicesInstaller : IInstaller
     {

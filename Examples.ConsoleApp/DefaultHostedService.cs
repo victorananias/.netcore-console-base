@@ -1,10 +1,10 @@
 using System.Threading;
 using System.Threading.Tasks;
-using ConsoleApp.Services;
+using Examples.ConsoleApp.Services;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace ConsoleApp
+namespace Examples.ConsoleApp
 {
     public class DefaultHostedService : IHostedService
     {

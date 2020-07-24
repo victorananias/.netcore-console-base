@@ -5,7 +5,7 @@ using Microsoft.Extensions.Hosting.Internal;
 using Microsoft.Extensions.Logging;
 
 
-namespace ConsoleApp.Services
+namespace Examples.ConsoleApp.Services
 {
     public class MainService : IMainService
     {

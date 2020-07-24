@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ConsoleApp.Installers
+namespace Examples.ConsoleApp.Installers
 {
     interface IInstaller
     {

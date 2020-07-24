@@ -1,14 +1,14 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
-using ConsoleApp.Installers;
-using ConsoleApp.Settings;
+using Examples.ConsoleApp.Installers;
+using Examples.ConsoleApp.Settings;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace ConsoleApp
+namespace Examples.ConsoleApp
 {
     class Program
     {

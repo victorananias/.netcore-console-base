@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace ConsoleApp.Services
+namespace Examples.ConsoleApp.Services
 {
     public interface IMainService
     {

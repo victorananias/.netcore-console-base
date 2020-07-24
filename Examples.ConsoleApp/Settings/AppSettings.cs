@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp.Settings
+namespace Examples.ConsoleApp.Settings
 {
     public class Example1
     {
