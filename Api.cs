@@ -24,23 +24,16 @@ namespace Examples.Classes
 
         public async Task<Response> Get()
         {
-            try
-            {
-                var url = _configuration["url"];
-                
-                var form = new FormUrlEncodedContent(new []
-                    {
-                        new KeyValuePair<string, string>("id", "test"),
-                    }
-                );
+            var url = _configuration["url"];
+            
+            var form = new FormUrlEncodedContent(new []
+                {
+                    new KeyValuePair<string, string>("id", "test"),
+                }
+            );
 
-                var responseMessage = await _http.PostAsync(url, form);
-                return await responseMessage.Content.ReadAsAsync<Response>();
-            }
-            catch(Exception e)
-            {
-                throw e;
-            }
+            var responseMessage = await _http.PostAsync(url, form);
+            return await responseMessage.Content.ReadAsAsync<Response>();
         }
     }
 }

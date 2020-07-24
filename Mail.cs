@@ -48,30 +48,23 @@ namespace Examples.Classes
 
         public void Send (string subject, string body, bool isBodyHtml = true)
         {
-            try
-            {
-                using var client = new SmtpClient (_host, _port);
-                client.EnableSsl = true;
-                client.Credentials = _credentials;
+            using var client = new SmtpClient (_host, _port);
+            client.EnableSsl = true;
+            client.Credentials = _credentials;
 
-                var message = new MailMessage ();
-                    
-                message.From = _from;
-                message.Subject = subject;
-                message.Body = body;
-                    
-                AddAdress(message.To, _to);
-                AddAdress(message.CC, _cc);
-                AddAdress(message.Bcc, _bcc);
+            var message = new MailMessage ();
+                
+            message.From = _from;
+            message.Subject = subject;
+            message.Body = body;
+                
+            AddAdress(message.To, _to);
+            AddAdress(message.CC, _cc);
+            AddAdress(message.Bcc, _bcc);
 
-                message.IsBodyHtml = isBodyHtml;
+            message.IsBodyHtml = isBodyHtml;
 
-                client.Send (message);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            client.Send (message);
         }
 
         private static void AddAdress(MailAddressCollection mail, string adresses)
