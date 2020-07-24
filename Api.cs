@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 
-namespace Classes
+namespace Examples.Classes
 {
     public class Api
     {

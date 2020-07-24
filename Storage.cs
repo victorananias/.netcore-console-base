@@ -2,7 +2,7 @@ using System.IO;
 using System;
 using System.Threading.Tasks;
 
-namespace Classes
+namespace Examples.Classes
 {
     public class Storage
     {

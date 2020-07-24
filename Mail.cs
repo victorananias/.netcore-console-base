@@ -2,7 +2,7 @@ using System;
 using System.Net;
 using System.Net.Mail;
 
-namespace Classes
+namespace Examples.Classes
 {
     public class Mail
     {

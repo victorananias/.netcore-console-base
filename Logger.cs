@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using Microsoft.Extensions.Configuration;
 
-namespace Classes
+namespace Examples.Classes
 {
     public class Logger
     {

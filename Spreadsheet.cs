@@ -3,7 +3,7 @@ using NPOI.OpenXml4Net.OPC;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 
-namespace Classes
+namespace Examples.Classes
 {
     class Spreadsheet
     {   

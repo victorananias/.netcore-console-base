@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Classes
+namespace Examples.Classes
 {
     class Program
     {
