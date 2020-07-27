@@ -1,7 +1,7 @@
-# .Net Core Console App Hosting Boilerplate
+# .NET Core Examples
 
+## Examples.ConsoleApp 
+App Hosting Boilerplate
 
-## Publish
-``
-dotnet publish -c release -o ./bin/publish
-``
+## Examples.Classes 
+Some examples of C# classes I have used
