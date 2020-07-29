@@ -4,4 +4,7 @@
 App Hosting Template
 
 ## Examples.Classes 
-Some examples of C# classes I have used
+Some C# classes
+
+## Examples.Extensions 
+Extension methods
