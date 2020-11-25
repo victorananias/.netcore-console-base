@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Examples.Extensions", "Exam
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Examples.Domain.DatabaseFirst", "Examples.Domain.DatabaseFirst\Examples.Domain.DatabaseFirst.csproj", "{F825E15A-9937-4A38-B589-04073F42F1BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples.Infrastructure.Repositories", "Examples.Infrastructure.Repositories\Examples.Infrastructure.Repositories.csproj", "{D2BCCBCE-90EE-4AE5-A15D-B219801AD4EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F825E15A-9937-4A38-B589-04073F42F1BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F825E15A-9937-4A38-B589-04073F42F1BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F825E15A-9937-4A38-B589-04073F42F1BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2BCCBCE-90EE-4AE5-A15D-B219801AD4EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2BCCBCE-90EE-4AE5-A15D-B219801AD4EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2BCCBCE-90EE-4AE5-A15D-B219801AD4EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2BCCBCE-90EE-4AE5-A15D-B219801AD4EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
