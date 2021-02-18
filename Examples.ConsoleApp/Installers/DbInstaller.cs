@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Examples.ConsoleApp.Installers
 {
-    public class DbInstaller
+    public class DbInstaller:IInstaller
     {
         
         private static readonly ILoggerFactory _dbLoggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
