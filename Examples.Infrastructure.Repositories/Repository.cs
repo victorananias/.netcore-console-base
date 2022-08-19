@@ -32,12 +32,12 @@ namespace Examples.Infrastructure.Repositories
 
         public async Task<IEnumerable<T>> GetAllByWhereAsync(Expression<Func<T, bool>> where)
         {
-            return _table.Where(where);
+            return await _table.Where(where).ToListAsync();
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public async Task<T?> GetByIdAsync(int id)
         {
-            return _table.Find(id);
+            return await _table.FindAsync(id);
         }
 
         public async Task<int> GetCountAsync()
